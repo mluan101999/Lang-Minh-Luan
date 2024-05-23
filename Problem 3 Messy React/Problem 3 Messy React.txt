@@ -1,0 +1,7 @@
+Các vấn đề trong đoạn mã trên:
+- Hàm useMemo đang được sử dụng để tính toán và sắp xếp lại balances. Tuy nhiên, việc sử dụng nó không cần thiết vì việc lọc và sắp xếp này không phức tạp     và không tạo ra nhiều lợi ích về hiệu suất.
+- Hàm getPriority có thể được tối ưu hóa để trả về một giá trị trực tiếp thay vì sử dụng switch-case.
+- Trong sortedBalances, điều kiện lọc đang bị viết không rõ ràng và gây nhầm lẫn. Đặc biệt là lhsPriority > -99 không được định nghĩa và có thể dẫn đến lỗi   logic
+- Trước khi sử dụng balances và prices, cần kiểm tra xem dữ liệu này có hợp lệ hay không để tránh lỗi.
+- Đang sử dụng sortedBalances.map hai lần để tạo ra formattedBalances và rows, nhưng không tái sử dụng kết quả của formattedBalances
+- Cấu trúc lồng nhau và nhiều biến đổi (lọc, sắp xếp, ánh xạ) làm cho mã khó đọc và bảo trì
